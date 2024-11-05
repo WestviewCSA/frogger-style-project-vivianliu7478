@@ -28,20 +28,41 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Font timeFont = new Font("Courier", Font.BOLD, 70);
 	int level = 0;
 	
+	static boolean debugging = true;
+	
 	
 	Font myFont = new Font("Courier", Font.BOLD, 40);
 	SimpleAudioPlayer backgroundMusic = new SimpleAudioPlayer("scifi.wav", false);
 //	Music soundBang = new Music("bang.wav", false);
 //	Music soundHaha = new Music("haha.wav", false);
 	
+	
+	Elf elf = new Elf();
+	Elf elf2 = new Elf(100, 200);
+	
+	
+	//a row of _____-Scrolling objects
+	Sleigh[] row1 = new Sleigh[10];
+	
 	//frame width/height
 	int width = 600;
-	int height = 600;	
+	int height = 800;	
 	
 
 	public void paint(Graphics g) {
 		super.paintComponent(g);
-
+		
+		
+		//paint the other objects on the screen
+		elf.paint(g);
+		elf2.paint(g);
+		
+		
+		//have the row1 objects paint on the screen
+		//for each obj in row1
+		for(Sleigh obj : row1) {
+			obj.paint(g);
+		}
 	}
 	
 	public static void main(String[] arg) {
@@ -58,8 +79,16 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
  		f.addMouseListener(this);
 		f.addKeyListener(this);
 	
-		backgroundMusic.play();
-
+		//backgroundMusic.play();
+		
+		/*
+		 * Set up any 1D array here - create the objects that go in them
+		 * 
+		 */
+		//traverse the array
+		for(int i = 0; i < row1.length; i++) {
+			row1[i] = new Sleigh(i*150 ,300);
+		}
 	
 		
 		//the cursor image must be outside of the src folder
@@ -136,3 +165,5 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	}
 
 }
+
+
