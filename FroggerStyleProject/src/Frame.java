@@ -36,13 +36,15 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 //	Music soundBang = new Music("bang.wav", false);
 //	Music soundHaha = new Music("haha.wav", false);
 	
-	
+	//elf object
 	Elf elf = new Elf();
 	Elf elf2 = new Elf(100, 200);
-	
+
+	//make the object for background later
 	
 	//a row of _____-Scrolling objects
 	Sleigh[] row1 = new Sleigh[10];
+	Sleigh2[] row2 = new Sleigh2[10];
 	
 	//frame width/height
 	int width = 600;
@@ -63,6 +65,21 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		for(Sleigh obj : row1) {
 			obj.paint(g);
 		}
+
+	//collision detection
+	//for each Sleigh object in row1 array
+	for(Sleigh obj : row1) {
+		//invoked the collided method for your
+		//class - pass the main character
+		//as your argument
+		if(obj.collided(elf)) {
+			System.out.println("ow!");
+		}
+	}
+
+	
+			
+			
 	}
 	
 	public static void main(String[] arg) {
@@ -87,7 +104,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		 */
 		//traverse the array
 		for(int i = 0; i < row1.length; i++) {
-			row1[i] = new Sleigh(i*150 ,300);
+			row1[i] = new Sleigh(i*102 ,300);
 		}
 	
 		
@@ -147,7 +164,14 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		System.out.println(arg0.getKeyCode());
-		
+		if(arg0.getKeyCode()== 87) {
+			//move main character up
+			elf.move(0);
+		}
+		if(arg0.getKeyCode()== 83) {
+			//move character down
+			elf.move(1);
+		}
 		
 		
 	}
