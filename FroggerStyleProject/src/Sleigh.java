@@ -9,7 +9,7 @@ import java.awt.geom.AffineTransform;
 import java.net.URL;
 
 public class Sleigh{
-	private Image forward, backward, left, right; 	
+	private Image forward; 	
 	private AffineTransform tx;
 	
 	//Attributes of this class
@@ -23,9 +23,6 @@ public class Sleigh{
 	public Sleigh() {
 		forward 	= getImage("/imgs/"+"sleigh.png"); //load the image for sleigh (the obstacle)
 		//don't forget to remove these as comments eventually when adding more of the pngs
-		backward 	= getImage("/imgs/"+"sleigh.png"); //load the image for Tree
-		left 		= getImage("/imgs/"+"sleigh.png"); //load the image for Tree
-		right 	    = getImage("/imgs/"+"sleigh.png"); //load the image for Tree
 
 		//width and height for hit box so adjust it to the png size
 		width = 102;

@@ -43,7 +43,9 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	//make the object for background later
 	
 	//a row of _____-Scrolling objects
+	//sleigh1
 	Sleigh[] row1 = new Sleigh[10];
+	//sleigh2
 	Sleigh2[] row2 = new Sleigh2[10];
 	
 	//frame width/height
@@ -62,7 +64,12 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		
 		//have the row1 objects paint on the screen
 		//for each obj in row1
+		//sleigh1
 		for(Sleigh obj : row1) {
+			obj.paint(g);
+		}
+		//sleigh2
+		for(Sleigh2 obj : row2) {
 			obj.paint(g);
 		}
 
@@ -105,6 +112,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		//traverse the array
 		for(int i = 0; i < row1.length; i++) {
 			row1[i] = new Sleigh(i*102 ,300);
+		}
+		
+		for(int i = 0; i < row2.length; i++) {
+			row2[i] = new Sleigh2(i*102, 500);
 		}
 	
 		

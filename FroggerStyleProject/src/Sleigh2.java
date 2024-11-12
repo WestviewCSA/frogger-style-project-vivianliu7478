@@ -8,7 +8,7 @@ import java.awt.geom.AffineTransform;
 import java.net.URL;
 
 public class Sleigh2{
-	private Image forward, backward, left, right; 	
+	private Image forward; 	
 	private AffineTransform tx;
 	
 	//Attributes of this class
@@ -22,13 +22,10 @@ public class Sleigh2{
 	public Sleigh2() {
 		forward 	= getImage("/imgs/"+"sleigh2.png"); //load the image for sleigh (the obstacle)
 		//don't forget to remove these as comments eventually when adding more of the pngs
-		backward 	= getImage("/imgs/"+"sleigh2.png"); //load the image for Tree
-		left 		= getImage("/imgs/"+"sleigh2.png"); //load the image for Tree
-		right 	    = getImage("/imgs/"+"sleigh2.png"); //load the image for Tree
 
 		//width and height for hit box so adjust it to the png size
-		width = 100;
-		height = 100;
+		width = 102;
+		height = 46;
 		
 		//used for placement on the JFrame
 		x = -width;
@@ -62,8 +59,8 @@ public class Sleigh2{
 		y+=vy;	
 		//for infinite scrolling - teleport to the other side
 		//once it leaves the other side
-		if(x > 650) {
-			x = -150;
+		if(x > 612) {
+			x = -102;
 		}
 		
 		init(x,y);

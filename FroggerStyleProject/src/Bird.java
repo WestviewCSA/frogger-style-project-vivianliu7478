@@ -9,7 +9,7 @@ import java.awt.geom.AffineTransform;
 import java.net.URL;
 
 public class Bird{
-	private Image forward, backward, left, right; 	
+	private Image forward; 	
 	private AffineTransform tx;
 	
 	//Attributes of this class
@@ -21,11 +21,7 @@ public class Bird{
 	double scaleHeight = 1.0; 		//change to scale image
 
 	public Bird() {
-		forward 	= getImage("/imgs/"+"elf.png"); //load the image for Tree
-		backward 	= getImage("/imgs/"+"elf.png"); //load the image for Tree
-		left 		= getImage("/imgs/"+"elf.png"); //load the image for Tree
-		right 		= getImage("/imgs/"+"elf.png"); //load the image for Tree
-
+		forward 	= getImage("/imgs/"+".png"); //load the image for Tree
 		//width and height for hit box so adjust it to the png size
 		width = 0;
 		height = 0;
