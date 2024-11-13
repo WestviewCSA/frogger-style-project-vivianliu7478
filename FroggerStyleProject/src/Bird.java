@@ -40,8 +40,6 @@ public class Bird{
 									//use your variables
 		
 	}
-	
-
 	//2nd constructor - allow setting x and y during construction
 	public Bird(int x, int y){
 		//call the default constructor for all normal stuff
