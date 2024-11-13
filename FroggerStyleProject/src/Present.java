@@ -8,7 +8,7 @@ import java.awt.Toolkit;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
 
-public class Elf{
+public class Present{
 	private Image forward; 	
 	private AffineTransform tx;
 	
@@ -17,34 +17,53 @@ public class Elf{
 	int width, height;              // collision detection (hit box)
 	int x, y;						//position of the object
 	int vx, vy;						//movement variables
-	double scaleWidth = 1.0;		//change to scale image
-	double scaleHeight = 1.0; 		//change to scale image
+	double scaleWidth = 2.0;		//change to scale image
+	double scaleHeight = 2.0; 		//change to scale image
 
-	public Elf() {
-		forward 	= getImage("/imgs/"+"Elf.png"); //load the image for Tree
+	public Present() {
+		forward 	= getImage("/imgs/"+"Present.png"); //load the image for sleigh (the obstacle)
+		//don't forget to remove these as comments eventually when adding more of the pngs
 
 		//width and height for hit box so adjust it to the png size
-		width = 0;
-		height = 0;
+		width = 102;
+		height = 46;
 		
 		//used for placement on the JFrame
-		x = 600/2-width/2;
-		y = 600;
+		x = -width;
+		y = 100;
 		
 		//if your movement will not be "hopping" base
-		vx = 0;
-		vy = 0;
+		vx = 7;
+		vy = 0; //velocity i the y direction does not change
 		
 		tx = AffineTransform.getTranslateInstance(0, 0);
 		
 		init(x, y); 				//initialize the location of the image
 									//use your variables
 		
+		
 	}
 	
-
+	public boolean collided(Elf character) {
+		//represent each object as a rectangle
+		//then check if they are intersecting
+		Rectangle main = new Rectangle(
+					character.getX(),
+					character.getY(),
+					character.getWidth(),
+					character.getHeight()
+					);
+			
+			Rectangle thisObject = new Rectangle(x, y, width, height);
+			
+			//user built-in method to check intersection (COLLISION)
+			return main.intersects(thisObject);
+			
+	}
+	
+	
 	//2nd constructor - allow setting x and y during construction
-	public Elf(int x, int y){
+	public Present(int x, int y){
 		//call the default constructor for all normal stuff
 		this(); //invokes default constructor
 		
@@ -52,53 +71,22 @@ public class Elf{
 		this.x = x;
 		this.y = y;
 	}
-	public void move(int dir) {
-		switch(dir) {
-		case 0: //hop up
-			y-= height; //move up a body length
-			break;
-		case 1: //hop down
-			y+= height;
-			break;
-		case 2: //hop left
-			x -= width;
-			break;
-		case 3: //hop right
-			x+= width;
-			break;
-		}
-	}
-	
-	
-	
-	
-	
-	//getters
-	
-	public int getX() {
-		return x;
-	}
-	public int getY() {
-		return y;
-	}
-	public int getWidth() {
-		return width;
-	}
-	public int getHeight() {
-		return height;
-	}
 
 	public void paint(Graphics g) {
 		//these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;
-		
+		//updates the x and y
 		x+=vx;
 		y+=vy;	
+		//for infinite scrolling - teleport to the other side
+		//once it leaves the other side
+		if(x > 612) {
+			x = -102;
+		}
 		
 		init(x,y);
-		
-		
 		g2.drawImage(forward, tx, null);
+		
 		//draw hit box based o x, y, width, height
 		//for collision detection
 		if(Frame.debugging) {

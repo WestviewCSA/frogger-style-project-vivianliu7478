@@ -47,6 +47,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Sleigh[] row1 = new Sleigh[10];
 	//sleigh2
 	Sleigh2[] row2 = new Sleigh2[10];
+	//present
+	Present[] row3 = new Present[10];
 	
 	//frame width/height
 	int width = 600;
@@ -62,6 +64,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		elf2.paint(g);
 		
 		
+		
 		//have the row1 objects paint on the screen
 		//for each obj in row1
 		//sleigh1
@@ -70,6 +73,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		}
 		//sleigh2
 		for(Sleigh2 obj : row2) {
+			obj.paint(g);
+		}
+		//present
+		for(Present obj : row3) {
 			obj.paint(g);
 		}
 
@@ -110,12 +117,17 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		 * 
 		 */
 		//traverse the array
+		//sleigh1
 		for(int i = 0; i < row1.length; i++) {
 			row1[i] = new Sleigh(i*102 ,300);
 		}
-		
+		//sleigh2
 		for(int i = 0; i < row2.length; i++) {
 			row2[i] = new Sleigh2(i*102, 500);
+		}
+		//present
+		for(int i = 0; i < row3.length; i++) {
+			row3[i] = new Present(i*102, 150);
 		}
 	
 		
