@@ -89,7 +89,29 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if(obj.collided(elf)) {
 			System.out.println("ow!");
 		}
+		
 	}
+	
+	//boolean riding = false;
+	//for(Sleigh obj : row1){
+		//if(obj.collided(mainDuck)){
+			//mainDuck.setVx(obj.getVx());
+			//riding = true;
+			//break;
+	//}
+//}
+	/*
+	 * main character stops moving if not a rideable object
+	 * but also let's limit it in the Y
+	 */
+	//if(!riding && mainDuck.getY() > 300){
+		//mainDuck.setVx(0);
+		//mainDuck.x = 150;
+		//mainDuck.y = 100;
+	/*
+	 * if ! riding any the elf is in the "Water" area 
+	 * reset back to starting
+	 */
 
 	
 			
@@ -149,6 +171,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
+		//System.out.println(arg0);
+		/*
+		 * add this if you do rideable object for mouse function
+		 */
 		
 	}
 
