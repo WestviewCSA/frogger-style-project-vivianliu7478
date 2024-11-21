@@ -52,6 +52,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	ArrayList<Sleigh2> row2List = new ArrayList<Sleigh2>();
 	//present
 	Present[] row3 = new Present[10];
+	ArrayList<Present> row3List = new ArrayList<Present>();
 	
 	//frame width/height
 	int width = 600;
@@ -87,7 +88,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		}
 		
 		//present
-		for(Present obj : row3) {
+		for(Present obj : row3) {//for every Present object in row3 array
+			obj.paint(g);
+		}
+		for(Present obj : row3List) {//for every Present object in row3 ArrayList
 			obj.paint(g);
 		}
 
