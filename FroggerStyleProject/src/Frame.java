@@ -13,6 +13,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -45,8 +46,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	//a row of _____-Scrolling objects
 	//sleigh1
 	Sleigh[] row1 = new Sleigh[10];
+	ArrayList<Sleigh> row1List = new ArrayList<Sleigh>();
 	//sleigh2
 	Sleigh2[] row2 = new Sleigh2[10];
+	ArrayList<Sleigh2> row2List = new ArrayList<Sleigh2>();
 	//present
 	Present[] row3 = new Present[10];
 	
@@ -68,13 +71,21 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		//have the row1 objects paint on the screen
 		//for each obj in row1
 		//sleigh1
-		for(Sleigh obj : row1) {
+		for(Sleigh obj : row1) { //for every Sleigh object in row1 array
+			obj.paint(g);
+		}
+		
+		for(Sleigh obj : row1List) {//for every Sleigh object in row1 ArrayList
 			obj.paint(g);
 		}
 		//sleigh2
-		for(Sleigh2 obj : row2) {
+		for(Sleigh2 obj : row2) {//for every Sleigh2 object in row2 array
 			obj.paint(g);
 		}
+		for(Sleigh2 obj : row2List) {//for every Sleigh2 object in row2 ArrayList
+			obj.paint(g);
+		}
+		
 		//present
 		for(Present obj : row3) {
 			obj.paint(g);
@@ -142,6 +153,11 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		//sleigh1
 		for(int i = 0; i < row1.length; i++) {
 			row1[i] = new Sleigh(i*102 ,300);
+		}
+		
+		//practice row for ArrayList
+		for(int i = 0; i < 10; i++) {//run the body 10x
+			this.row1List.add(new Sleigh(i*180, 100));
 		}
 		//sleigh2
 		for(int i = 0; i < row2.length; i++) {
