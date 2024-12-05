@@ -39,7 +39,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	
 	//elf object
 	Elf elf = new Elf();
-	Elf elf2 = new Elf(100, 200);
+	//Elf elf2 = new Elf(100, 200);
 
 	//make the object for background later
 	
@@ -65,7 +65,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		
 		//paint the other objects on the screen
 		elf.paint(g);
-		elf2.paint(g);
+		//elf2.paint(g);
 		
 		
 		
@@ -76,14 +76,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			obj.paint(g);
 		}
 		
-		for(Sleigh obj : row1List) {//for every Sleigh object in row1 ArrayList
-			obj.paint(g);
-		}
 		//sleigh2
 		for(Sleigh2 obj : row2) {//for every Sleigh2 object in row2 array
-			obj.paint(g);
-		}
-		for(Sleigh2 obj : row2List) {//for every Sleigh2 object in row2 ArrayList
 			obj.paint(g);
 		}
 		
@@ -98,6 +92,16 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	//collision detection
 	//for each Sleigh object in row1 array
 	for(Sleigh obj : row1) {
+		//invoked the collided method for your
+		//class - pass the main character
+		//as your argument
+		if(obj.collided(elf)) {
+			System.out.println("ow!");
+		}
+		
+	}
+	
+	for(Sleigh2 obj : row2) {
 		//invoked the collided method for your
 		//class - pass the main character
 		//as your argument
@@ -169,7 +173,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		}
 		//present
 		for(int i = 0; i < row3.length; i++) {
-			row3[i] = new Present(i*102, 150);
+			row3[i] = new Present(i*102, 50);
 		}
 	
 		
@@ -236,10 +240,16 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if(arg0.getKeyCode()== 87) {
 			//move main character up
 			elf.move(0);
-		}
-		if(arg0.getKeyCode()== 83) {
+		}else if(arg0.getKeyCode()== 83) {
 			//move character down
 			elf.move(1);
+		}
+		if(arg0.getKeyCode()== 65) {
+			//move main character up
+			elf.move(2);
+		}else if(arg0.getKeyCode()== 68) {
+			//move character down
+			elf.move(3);
 		}
 		
 		

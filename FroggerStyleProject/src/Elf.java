@@ -55,16 +55,16 @@ public class Elf{
 	public void move(int dir) {
 		switch(dir) {
 		case 0: //hop up
-			y-= height; //move up a body length
+			y-= 25; //move up a body length
 			break;
 		case 1: //hop down
-			y+= height;
+			y+= 25;
 			break;
 		case 2: //hop left
-			x -= width;
+			x -= 25;
 			break;
 		case 3: //hop right
-			x+= width;
+			x+= 25;
 			break;
 		}
 	}

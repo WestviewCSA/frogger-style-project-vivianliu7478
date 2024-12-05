@@ -44,14 +44,14 @@ public class Sleigh{
 		
 	}
 	
-	public boolean collided(Elf character) {
+	public boolean collided(Elf elf) {
 		//represent each object as a rectangle
 		//then check if they are intersecting
 		Rectangle main = new Rectangle(
-					character.getX(),
-					character.getY(),
-					character.getWidth(),
-					character.getHeight()
+					elf.getX(),
+					elf.getY(),
+					elf.getWidth(),
+					elf.getHeight()
 					);
 			
 			Rectangle thisObject = new Rectangle(x, y, width, height);

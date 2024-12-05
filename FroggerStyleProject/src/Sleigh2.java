@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
@@ -40,6 +41,24 @@ public class Sleigh2{
 		init(x, y); 				//initialize the location of the image
 									//use your variables
 		
+	}
+
+	
+	public boolean collided(Elf elf) {
+		//represent each object as a rectangle
+		//then check if they are intersecting
+		Rectangle main = new Rectangle(
+					elf.getX(),
+					elf.getY(),
+					elf.getWidth(),
+					elf.getHeight()
+					);
+			
+			Rectangle thisObject = new Rectangle(x, y, width, height);
+			
+			//user built-in method to check intersection (COLLISION)
+			return main.intersects(thisObject);
+			
 	}
 	//2nd constructor - allow setting x and y during construction
 	public Sleigh2(int x, int y){

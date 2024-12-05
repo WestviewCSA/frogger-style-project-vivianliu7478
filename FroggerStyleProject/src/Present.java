@@ -17,16 +17,15 @@ public class Present{
 	int width, height;              // collision detection (hit box)
 	int x, y;						//position of the object
 	int vx, vy;						//movement variables
-	double scaleWidth = 2.0;		//change to scale image
-	double scaleHeight = 2.0; 		//change to scale image
+	double scaleWidth = 0.25;		//change to scale image
+	double scaleHeight = 0.25; 		//change to scale image
 
 	public Present() {
-		forward 	= getImage("/imgs/"+"Present.png"); //load the image for sleigh (the obstacle)
-		//don't forget to remove these as comments eventually when adding more of the pngs
+		forward 	= getImage("/imgs/"+"present.png"); //load the image for sleigh (the obstacle)
 
 		//width and height for hit box so adjust it to the png size
-		width = 102;
-		height = 46;
+		width = 21;
+		height = 25;
 		
 		//used for placement on the JFrame
 		x = -width;
