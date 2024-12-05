@@ -55,8 +55,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	ArrayList<Present> row3List = new ArrayList<Present>();
 	
 	//frame width/height
-	int width = 600;
-	int height = 800;	
+	static int width = 600;
+	static int height = 800;	
 	
 
 	public void paint(Graphics g) {
@@ -160,20 +160,20 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		//traverse the array
 		//sleigh1
 		for(int i = 0; i < row1.length; i++) {
-			row1[i] = new Sleigh(i*102 ,300);
+			row1[i] = new Sleigh(i*220 ,300);
 		}
 		
 		//practice row for ArrayList
-		for(int i = 0; i < 10; i++) {//run the body 10x
+		for(int i = 0; i < 3; i++) {//run the body 10x
 			this.row1List.add(new Sleigh(i*180, 100));
 		}
 		//sleigh2
 		for(int i = 0; i < row2.length; i++) {
-			row2[i] = new Sleigh2(i*102, 500);
+			row2[i] = new Sleigh2(i*220, 500);
 		}
 		//present
 		for(int i = 0; i < row3.length; i++) {
-			row3[i] = new Present(i*102, 50);
+			row3[i] = new Present(i*210, 50);
 		}
 	
 		

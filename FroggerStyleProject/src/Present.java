@@ -17,8 +17,8 @@ public class Present{
 	int width, height;              // collision detection (hit box)
 	int x, y;						//position of the object
 	int vx, vy;						//movement variables
-	double scaleWidth = 0.25;		//change to scale image
-	double scaleHeight = 0.25; 		//change to scale image
+	double scaleWidth = 0.03;		//change to scale image
+	double scaleHeight = 0.03; 		//change to scale image
 
 	public Present() {
 		forward 	= getImage("/imgs/"+"present.png"); //load the image for sleigh (the obstacle)
@@ -28,11 +28,11 @@ public class Present{
 		height = 25;
 		
 		//used for placement on the JFrame
-		x = -width;
-		y = 100;
+		x = Frame.width/2 - width/2;
+		y = Frame.height - height*2;
 		
 		//if your movement will not be "hopping" base
-		vx = 7;
+		vx = 4;
 		vy = 0; //velocity i the y direction does not change
 		
 		tx = AffineTransform.getTranslateInstance(0, 0);

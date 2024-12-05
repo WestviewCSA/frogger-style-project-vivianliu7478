@@ -33,7 +33,7 @@ public class Sleigh2{
 		y = 100;
 		
 		//if your movement will not be "hopping" base
-		vx = 7;
+		vx = 3;
 		vy = 0; //velocity i the y direction does not change
 		
 		tx = AffineTransform.getTranslateInstance(0, 0);
